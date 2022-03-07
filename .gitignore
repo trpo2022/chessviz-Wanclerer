@@ -1,0 +1,6 @@
+*.txt
+*.o
+*main
+*.Makefile.swp
+main.c~
+#main.c#
