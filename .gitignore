@@ -1,6 +1,19 @@
-*.txt
+# Prerequisites
+*.d
+
+# Object files
 *.o
-*main
-*.Makefile.swp
-main.c~
-#main.c#
+*.ko
+*.obj
+*.elf
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Executables
+*.exe
+*.out
+*.app
