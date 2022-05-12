@@ -11,7 +11,7 @@ MoveErrorType make_move(ChessBoard* board, ChessMove* move, Color color)
 static void transform_pawn(ChessBoard* board, ChessMove* move, Color color)
 {
     char left = color == ColorBlack ? 'p' : 'P';
-    char right = color == ColorBlack ? 0 : 7;
+    char right = color == ColorBlack ? 0 : RAW - 1;
     char pawn;
     if ((board->Map[move->CurrentPos.Y][move->CurrentPos.X] == left) && (move->NextPos.Y == right))
     {
