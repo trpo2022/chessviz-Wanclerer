@@ -17,3 +17,7 @@
 *.exe
 *.out
 *.app
+
+chessviz
+libchessviz
+libchessviz-test
