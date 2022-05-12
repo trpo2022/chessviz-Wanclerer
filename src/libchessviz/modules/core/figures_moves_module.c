@@ -89,5 +89,6 @@ MoveErrorType check_king(ChessBoard* board, ChessMove* move)
 
 MoveErrorType check_queen(ChessBoard* board, ChessMove* move)
 {
-    return (MoveErrorType)(check_direction_x(board, move) || check_direction_y(board, move) || check_direction_d(board, move));
+    int result = check_direction_x(board, move) || check_direction_y(board, move) || check_direction_d(board, move);
+    return (MoveErrorType)(result);
 }
