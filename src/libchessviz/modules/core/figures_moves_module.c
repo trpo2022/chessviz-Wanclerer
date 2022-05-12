@@ -16,32 +16,32 @@ int check_transform(char choise, Color color)
 
 MoveErrorType check_white_pawn(ChessBoard* board, ChessMove* move)
 {
-    if ((board->Map[move->NextPos.Y][move->NextPos.X] == ' ') && (move->CurrentPos.Y == 1)
-        && (move->CurrentPos.X == move->NextPos.X) && (move->NextPos.Y - move->CurrentPos.Y > 0)
-        && (move->NextPos.Y - move->CurrentPos.Y < 3) && check_direction_y(board, move))
+    if ((board->Map[move->NextPos.Y][move->NextPos.X] == ' ') && (move->CurrentPos.Y == 1) &&
+        (move->CurrentPos.X == move->NextPos.X) && (move->NextPos.Y - move->CurrentPos.Y > 0) &&
+        (move->NextPos.Y - move->CurrentPos.Y < 3) && check_direction_y(board, move))
         return MoveErrorTypeNoError;
-    if ((board->Map[move->NextPos.Y][move->NextPos.X] == ' ') && (move->NextPos.X == move->CurrentPos.X)
-        && (move->NextPos.Y - move->CurrentPos.Y == 1))
+    if ((board->Map[move->NextPos.Y][move->NextPos.X] == ' ') && (move->NextPos.X == move->CurrentPos.X) &&
+        (move->NextPos.Y - move->CurrentPos.Y == 1))
         return MoveErrorTypeRequiredToTransform;
-    if ((board->Map[move->NextPos.Y][move->NextPos.X] < 's' && board->Map[move->NextPos.Y][move->NextPos.X] > 'a')
-        && ((move->NextPos.X - move->CurrentPos.X == 1) || (move->NextPos.X - move->CurrentPos.X == -1))
-        && (move->NextPos.Y - move->CurrentPos.Y == 1) && (move->Type == 'x'))
+    if ((board->Map[move->NextPos.Y][move->NextPos.X] < 's' && board->Map[move->NextPos.Y][move->NextPos.X] > 'a') &&
+        ((move->NextPos.X - move->CurrentPos.X == 1) || (move->NextPos.X - move->CurrentPos.X == -1)) &&
+        (move->NextPos.Y - move->CurrentPos.Y == 1) && (move->Type == 'x'))
         return MoveErrorTypeNoError;
     return MoveErrorTypeFailedMove;
 }
 
 MoveErrorType check_black_pawn(ChessBoard* board, ChessMove* move)
 {
-    if ((board->Map[move->NextPos.Y][move->NextPos.X] == ' ') && (move->CurrentPos.Y == 6)
-        && (move->CurrentPos.X == move->NextPos.X) && (move->CurrentPos.Y - move->NextPos.Y > 0)
-        && (move->CurrentPos.Y - move->NextPos.Y < 3) && check_direction_y(board, move))
+    if ((board->Map[move->NextPos.Y][move->NextPos.X] == ' ') && (move->CurrentPos.Y == 6) &&
+        (move->CurrentPos.X == move->NextPos.X) && (move->CurrentPos.Y - move->NextPos.Y > 0) &&
+        (move->CurrentPos.Y - move->NextPos.Y < 3) && check_direction_y(board, move))
         return MoveErrorTypeNoError;
-    if ((board->Map[move->NextPos.Y][move->NextPos.X] == ' ') && (move->NextPos.X == move->CurrentPos.X)
-        && (move->CurrentPos.Y - move->NextPos.Y == 1))
+    if ((board->Map[move->NextPos.Y][move->NextPos.X] == ' ') && (move->NextPos.X == move->CurrentPos.X) &&
+        (move->CurrentPos.Y - move->NextPos.Y == 1))
         return MoveErrorTypeRequiredToTransform;
-    if ((board->Map[move->NextPos.Y][move->NextPos.X] < 'S' && board->Map[move->NextPos.Y][move->NextPos.X] > 'A')
-        && ((move->CurrentPos.X - move->NextPos.X == 1) || (move->CurrentPos.X - move->NextPos.X == -1))
-        && (move->CurrentPos.Y - move->NextPos.Y == 1) && (move->Type == 'x'))
+    if ((board->Map[move->NextPos.Y][move->NextPos.X] < 'S' && board->Map[move->NextPos.Y][move->NextPos.X] > 'A') &&
+        ((move->CurrentPos.X - move->NextPos.X == 1) || (move->CurrentPos.X - move->NextPos.X == -1)) &&
+        (move->CurrentPos.Y - move->NextPos.Y == 1) && (move->Type == 'x'))
         return MoveErrorTypeNoError;
     return MoveErrorTypeFailedMove;
 }

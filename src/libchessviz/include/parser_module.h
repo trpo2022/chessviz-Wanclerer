@@ -3,7 +3,8 @@
 #include <libchessviz/include/chess_board.h>
 #include <libchessviz/include/chess_move.h>
 
-typedef enum {
+typedef enum
+{
     ParserErrorTypeNoError,
     ParserErrorTypeUndefinedMoveType,
     ParserErrorTypeEmptyTakePosition,

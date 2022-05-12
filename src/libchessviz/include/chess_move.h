@@ -1,22 +1,26 @@
 #pragma once
 
-typedef struct {
+typedef struct
+{
     int X;
     int Y;
 } PointInt;
 
-typedef enum {
+typedef enum
+{
     ColorBlack,
     ColorWhite,
 } Color;
 
-typedef struct {
+typedef struct
+{
     PointInt CurrentPos;
     PointInt NextPos;
     char Type;
 } ChessMove;
 
-typedef enum {
+typedef enum
+{
     MoveErrorTypeFailedMove,
     MoveErrorTypeNoError,
     MoveErrorTypeNotEmptyMotionPosition,

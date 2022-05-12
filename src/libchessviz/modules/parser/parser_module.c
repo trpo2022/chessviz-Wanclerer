@@ -20,8 +20,8 @@ ParserErrorType parse_input(ChessBoard* board, ChessMove* move, char* input)
 {
     if ((input[2] != '-') && (input[2] != 'x'))
         return ParserErrorTypeUndefinedMoveType;
-    int coords[]
-            = {toupper((int)input[0]) - 'A', (int)input[1] - '1', toupper((int)input[3]) - 'A', (int)input[4] - '1'};
+    int coords[] = {toupper((int)input[0]) - 'A', (int)input[1] - '1', toupper((int)input[3]) - 'A',
+                    (int)input[4] - '1'};
     for (int i = 0; i < COORDS_COUNT; ++i)
         if (!in_range(coords[i]))
             return ParserErrorTypeEmptyIncorrectCoordinates;

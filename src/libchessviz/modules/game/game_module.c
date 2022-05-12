@@ -11,7 +11,8 @@ static int read_input(char** inp)
 {
     uptr_t length;
     *inp = readline(&length);
-    if (strlen(*inp) != 6) {
+    if (strlen(*inp) != 6)
+    {
         free(*inp);
         return 0;
     }
@@ -20,7 +21,8 @@ static int read_input(char** inp)
 
 void print_parser_error(ParserErrorType err)
 {
-    switch (err) {
+    switch (err)
+    {
     case ParserErrorTypeUndefinedMoveType:
         writeline("Undefined move type. For move => '-', for take => 'x'.");
         break;
@@ -37,7 +39,8 @@ void print_parser_error(ParserErrorType err)
 
 void print_move_error(MoveErrorType err)
 {
-    switch (err) {
+    switch (err)
+    {
     case MoveErrorTypeFailedMove:
         writeline("You can't move like this!");
         break;
@@ -62,24 +65,28 @@ void run()
     Color color = ColorWhite;
     int is_running = 1;
     int err = 0;
-    while (is_running) {
+    while (is_running)
+    {
         system("clear");
         err = 0;
         char* inp = NULL;
         print_board(&board);
         printf(color == ColorBlack ? "Black (Lower case):" : "White (Upper case):");
-        if (!read_input(&inp)) {
+        if (!read_input(&inp))
+        {
             writeline("Wrong input. Please, try again!");
             continue;
         }
         ChessMove chess_move;
         err = parse_input(&board, &chess_move, inp);
-        if (err != ParserErrorTypeNoError) {
+        if (err != ParserErrorTypeNoError)
+        {
             print_parser_error(err);
             continue;
         }
         err = make_move(&board, &chess_move, color);
-        if (err != MoveErrorTypeNoError) {
+        if (err != MoveErrorTypeNoError)
+        {
             print_move_error(err);
             continue;
         }

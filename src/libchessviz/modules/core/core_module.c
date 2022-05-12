@@ -13,8 +13,10 @@ static void transform_pawn(ChessBoard* board, ChessMove* move, Color color)
     char left = color == ColorBlack ? 'p' : 'P';
     char right = color == ColorBlack ? 0 : 7;
     char pawn;
-    if ((board->Map[move->CurrentPos.Y][move->CurrentPos.X] == left) && (move->NextPos.Y == right)) {
-        while (1) {
+    if ((board->Map[move->CurrentPos.Y][move->CurrentPos.X] == left) && (move->NextPos.Y == right))
+    {
+        while (1)
+        {
             printf("Enter new figure to transform pawn: ");
             pawn = getchar();
             if (check_transform(pawn, color))
@@ -33,10 +35,12 @@ MoveErrorType move_white(ChessBoard* board, ChessMove* move)
     if ((next_tile > 'A') && (next_tile < 'S'))
         return MoveErrorTypeUnknownFigureToTake;
     MoveErrorType err;
-    switch (board->Map[move->CurrentPos.Y][move->CurrentPos.X]) {
+    switch (board->Map[move->CurrentPos.Y][move->CurrentPos.X])
+    {
     case 'P':
         err = check_white_pawn(board, move);
-        if (err == MoveErrorTypeRequiredToTransform) {
+        if (err == MoveErrorTypeRequiredToTransform)
+        {
             transform_pawn(board, move, ColorWhite);
             return MoveErrorTypeNoError;
         }
@@ -63,10 +67,12 @@ MoveErrorType move_black(ChessBoard* board, ChessMove* move)
     if ((next_tile > 'a') && (next_tile < 's'))
         return MoveErrorTypeUnknownFigureToTake;
     MoveErrorType err;
-    switch (board->Map[move->CurrentPos.Y][move->CurrentPos.X]) {
+    switch (board->Map[move->CurrentPos.Y][move->CurrentPos.X])
+    {
     case 'p':
         err = check_black_pawn(board, move);
-        if (err == MoveErrorTypeRequiredToTransform) {
+        if (err == MoveErrorTypeRequiredToTransform)
+        {
             transform_pawn(board, move, ColorBlack);
             return MoveErrorTypeNoError;
         }
@@ -95,9 +101,12 @@ int is_gameover(ChessBoard* board, Color status)
 {
     int i, j, player = 0;
     int game_over = 1;
-    for (i = 0; i < 8; i++) {
-        for (j = 0; j < 8; j++) {
-            if (board->Map[i][j] == ((status == ColorBlack) ? 'k' : 'K')) {
+    for (i = 0; i < 8; i++)
+    {
+        for (j = 0; j < 8; j++)
+        {
+            if (board->Map[i][j] == ((status == ColorBlack) ? 'k' : 'K'))
+            {
                 game_over = 0;
             }
         }
